@@ -1,5 +1,5 @@
 ---
-name: spaced-repetition
+name: spaced-repetition-teaching
 description: >
   Adaptive spaced repetition engine using the FSRS-6 algorithm (Free Spaced
   Repetition Scheduler, Ye et al. 2024). Manages flashcard reviews with
@@ -52,7 +52,11 @@ Each card is a markdown section (`### Title`) with metadata:
 - `lapses` = times forgotten (rated Again)
 - `last` / `next` = last review date / scheduled next review
 
-**Rating scale:** 1=Again (forgot), 2=Hard, 3=Good, 4=Easy
+**Rating scale:**
+- 1 = "Didn't know it" (blanked or completely wrong)
+- 2 = "Struggled" (got there but with significant difficulty or errors)
+- 3 = "Got it" (recalled correctly with some effort)
+- 4 = "Nailed it" (instant, effortless recall)
 
 ---
 
@@ -88,16 +92,8 @@ python scripts/due_cards.py ~/my-cards.md --date 2026-03-20  # plan ahead
 ### Submit a review
 ```bash
 python scripts/review.py ~/my-cards.md "Binary Search" 3
-# Ratings: 1=Again 2=Hard 3=Good 4=Easy
+# Ratings: 1="Didn't know it" 2="Struggled" 3="Got it" 4="Nailed it"
 ```
-
-### Migrate existing fixed-interval cards (optional, one-time)
-```bash
-python scripts/migrate.py ~/my-cards.md --dry-run   # preview
-python scripts/migrate.py ~/my-cards.md              # apply
-```
-For users with existing markdown flashcard files using fixed intervals (Day 1/3/7/14).
-Infers FSRS state from review history. First real review recalibrates.
 
 ### Run algorithm self-test
 ```bash
@@ -137,12 +133,14 @@ Parse card file and compute: strong cards (s>30d), struggling cards (lapses>0),
 
 ---
 
-## Interpreting FSRS Numbers
+## Interpreting FSRS Numbers (Advanced)
+
+Most users don't need this — the system handles scheduling automatically. For the curious:
 
 - **Stability (s):** Days until ~90% recall. s=10 → review in ~10 days.
 - **Difficulty (d):** 1=very easy, 10=very hard. Good cards converge to 3–6.
-- **After Again:** Stability drops sharply (e.g., 20d → 3d). Correct behavior.
-- **After Easy:** Stability grows fast. Use sparingly — only for instant recall.
+- **After "Didn't know it":** Stability drops sharply (e.g., 20d → 3d). Correct behavior.
+- **After "Nailed it":** Stability grows fast. Use sparingly — only for instant recall.
 - **Key insight:** At 90% retention target, interval ≈ stability.
 
 ## Algorithm Reference

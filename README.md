@@ -8,7 +8,7 @@ Compatible with: Claude Code, Cursor, GitHub Copilot, Codex, Gemini CLI, OpenCla
 
 | Skill | Description |
 |-------|-------------|
-| [spaced-repetition](./spaced-repetition/) | Adaptive spaced repetition engine using the FSRS-6 algorithm. Schedules flashcard reviews with scientifically optimal intervals and multi-mode review coaching. |
+| [spaced-repetition-teaching](./spaced-repetition-teaching/) | Adaptive spaced repetition engine using the FSRS-6 algorithm. Schedules flashcard reviews with scientifically optimal intervals and multi-mode review coaching. |
 
 ## Installation
 
