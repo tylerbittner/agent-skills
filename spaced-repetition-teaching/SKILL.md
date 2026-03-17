@@ -42,7 +42,7 @@ Each card is a markdown section (`### Title`) with metadata:
 - **When to reach for it:** "Maximize/minimize a value subject to a feasibility
   check" — binary search on the answer.
 - **FSRS:** d=5.50 s=8.20 reps=3 lapses=0 last=2026-03-11 next=2026-03-19
-- **History:** [2026-03-04 G=3(Good), 2026-03-09 G=1(Again), 2026-03-11 G=3(Good)]
+- **History:** [2026-03-04 Good, 2026-03-09 Again, 2026-03-11 Good]
 ```
 
 **FSRS fields:**
@@ -53,10 +53,14 @@ Each card is a markdown section (`### Title`) with metadata:
 - `last` / `next` = last review date / scheduled next review
 
 **Rating scale:**
-- 1 = "Didn't know it" (blanked or completely wrong)
-- 2 = "Struggled" (got there but with significant difficulty or errors)
-- 3 = "Got it" (recalled correctly with some effort)
-- 4 = "Nailed it" (instant, effortless recall)
+- 1 = Again — "Didn't know it" (blanked or completely wrong)
+- 2 = Hard — "Struggled" (got there but with significant difficulty or errors)
+- 3 = Good — "Got it" (recalled correctly with some effort)
+- 4 = Easy — "Nailed it" (instant, effortless recall)
+
+**Presentation rule:** When logging history or discussing ratings with the user,
+use the human-readable label (Again/Hard/Good/Easy) — never the raw numeric
+`G=N` notation. The numbers are internal to the FSRS engine.
 
 ---
 
