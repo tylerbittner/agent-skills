@@ -130,9 +130,14 @@ python scripts/fsrs.py
 ### "What's due today?"
 Run `due_cards.py`. Present P1 cards first.
 
+### After EVERY card review
+Run `review.py` immediately after rating each card — do not batch updates.
+FSRS accuracy depends on recording the exact review timestamp. Show the
+updated stability and next interval to the user.
+If rated Again, normalize — it's data, not failure.
+
 ### "I reviewed [card] — rated [X]"
 Run `review.py`. Show updated stability and next interval.
-If rated Again, normalize — it's data, not failure.
 
 ### "Add a new card for [topic]"
 Insert a new `### Title` section. Do NOT add the FSRS line — created
