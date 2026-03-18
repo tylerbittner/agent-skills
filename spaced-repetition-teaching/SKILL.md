@@ -18,7 +18,47 @@ art in spaced repetition scheduling, backed by 130+ years of memory research.
 Open-source reference: [open-spaced-repetition/py-fsrs](https://github.com/open-spaced-repetition/py-fsrs) (MIT).
 
 **Origin:** Developed and refined through the [Formation](https://formation.dev)
-Fellowship program. The author is not a representative of Formation.
+Fellowship program for technical interview preparation — specifically DSA/algorithm
+coding problems where learners need to both *understand* patterns conceptually and
+*implement* them under time pressure. The author is not a representative of Formation.
+
+---
+
+## Learning Domain Adaptation
+
+Different subjects demand different review emphasis. Detect the domain from the
+card content and adapt the review cycle accordingly:
+
+### Conceptual + Skill (default) — e.g., algorithm coding, system design
+Cards require understanding *why* an approach works AND fluent implementation.
+- **Recall** → **Interrogate** → **Rewrite** (timed coding) → **Retain**
+- Emphasize the Interrogate and Rewrite phases — interviewers evaluate judgment
+  and implementation speed, not just correctness.
+- "Alternative phrasings" field matters — pattern recognition under varied wording
+  is half the interview battle.
+
+### Memorization-Heavy — e.g., medical school, language vocab, API references
+Cards are primarily fact retrieval with less "why" reasoning.
+- **Recall** → **Retain** (shorter cycle, higher volume)
+- Interrogate phase is lighter (associations, mnemonics, context clues)
+- Rewrite phase may not apply — replace with "produce from memory" (e.g., spell it,
+  diagram it, list the steps)
+- Optimize for card volume per session — more cards, faster pace.
+
+### Conceptually Heavy — e.g., physics, mathematics, philosophy
+Cards require deep reasoning and connecting ideas across domains.
+- **Recall** → **Interrogate** (extended) → **Retain**
+- Emphasize Interrogate: "Derive it from first principles," "How does this connect
+  to [other concept]?", "What breaks if this assumption is wrong?"
+- Rewrite phase becomes "re-derive" or "explain to a non-expert" (Feynman method)
+- Fewer cards per session, more depth per card.
+
+### Detection heuristic
+Infer domain from card content:
+- Has code/pseudocode/complexity analysis → **Conceptual + Skill**
+- Has definitions, terminology, lists of facts → **Memorization-Heavy**
+- Has proofs, derivations, "why" as the core prompt → **Conceptually Heavy**
+- When uncertain, ask the user or default to **Conceptual + Skill**.
 
 ---
 
